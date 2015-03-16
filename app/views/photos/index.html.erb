@@ -1,0 +1,12 @@
+<h2>Welcome</h2>
+
+<div class="row">
+  <% @photos.each do |photo| %>
+    <div class="col-lg-3">
+      <%= link_to (image_tag photo.photo_file_name.url(:medium)), photo_path(photo) %><br>
+      <b><%= photo.title %></b><br>
+      <%= link_to "Edit", edit_photo_path(photo) %> |
+      <%= link_to "Delete", photo_path(photo), :method => :delete, :data => {confirm: "Are you sure want to delete this file?"} %>
+    </div>
+  <% end %>
+</div>
